@@ -1,0 +1,41 @@
+======================================================================
+REPORTE DE AUDITORÍA — MOTOR DE REGLAS v1.0.0
+======================================================================
+
+1. VERIFICACIÓN DE COMPLETITUD
+   Total clientes:              300
+   Sin acción asignada:          0
+   Sin regla asignada:           0
+   Sin justificación:            0
+   Estado: PASS
+
+2. VERIFICACIÓN DE TRAZABILIDAD
+   Reglas encontradas:           ['R01', 'R02', 'R03', 'R04', 'R05', 'R07']
+   Reglas inválidas:             Ninguna
+   Estado: PASS
+
+3. DISTRIBUCIÓN POR ACCIÓN
+   Más cupo en tarjeta de crédito                 204  ( 68.0%)
+   Banca de inversión                              66  ( 22.0%)
+   Ofrecer hipotecario                             30  ( 10.0%)
+
+4. DISTRIBUCIÓN POR REGLA
+   R01 — Inversor activo de alto patrimonio              44
+   R02 — Premium con patrimonio líquido sin inversión    16
+   R03 — Alto ingreso y saldo sin inversión               6
+   R04 — Alta capacidad con estabilidad demostrada        6
+   R05 — Select/Premium joven sin consumo vigente        24
+   R07 — Default — Más cupo TC                          204
+
+5. MÉTRICAS POR ACCIÓN
+   Banca de inversión
+     Score medio: 775 | Ingreso medio: $4,950,919 | Saldo medio: $7,074,043
+   Más cupo en tarjeta de crédito
+     Score medio: 484 | Ingreso medio: $1,266,604 | Saldo medio: $821,101
+   Ofrecer hipotecario
+     Score medio: 661 | Ingreso medio: $3,060,148 | Saldo medio: $2,680,388
+
+6. ALERTAS DE COHERENCIA
+   Ninguna alerta detectada.
+
+======================================================================
