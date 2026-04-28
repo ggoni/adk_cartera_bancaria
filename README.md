@@ -39,7 +39,7 @@ uv venv --python 3.12
 source .venv/bin/activate   # Linux/macOS
 # .venv\Scripts\activate    # Windows
 
-uv pip install -r requirements.txt
+uv sync
 
 cp .env.example .env
 # Editar .env con tu OPENROUTER_API_KEY
