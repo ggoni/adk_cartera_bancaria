@@ -31,7 +31,7 @@ from google.adk.models.lite_llm import LiteLlm
 
 # Gemini Flash es rápido y barato. Para mayor calidad, usar "gemini-2.0-pro".
 # Ahora configurado usando OpenRouter vía LiteLLM
-MODEL = LiteLlm(model_id="openrouter/google/gemini-2.5-flash")
+MODEL = LiteLlm(model="openrouter/qwen/qwen3-5-plus")
 
 # ============================================================================
 # AGENTE 1: ANALISTA DE RIESGO
