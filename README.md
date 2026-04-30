@@ -27,33 +27,96 @@ Tres agentes operan en pipeline secuencial (`SequentialAgent`):
 
 ## Requisitos
 
-- Python >= 3.10
-- Una API key de OpenRouter
+- Python >= 3.10 (recomendado 3.12)
+- Una API key de OpenRouter (gratuita)
+- `uv` package manager (ver instalación abajo)
 
-## Instalación
+## Instalación de uv (si no lo tienes)
+
+```bash
+# macOS/Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+## Setup del Proyecto
+
+### 1. Clonar y entrar al proyecto
 
 ```bash
 cd adk_cartera_bancaria
+```
 
+### 2. Crear entorno virtual
+
+```bash
 uv venv --python 3.12
-source .venv/bin/activate   # Linux/macOS
-# .venv\Scripts\activate    # Windows
+```
 
+### 3. Activar entorno virtual
+
+```bash
+# Linux/macOS
+source .venv/bin/activate
+
+# Windows (PowerShell)
+.venv\Scripts\activate
+
+# Windows (CMD)
+.venv\Scripts\activate.bat
+```
+
+### 4. Instalar dependencias
+
+```bash
 uv sync
+```
 
+### 5. Configurar API Key
+
+```bash
+# Copiar template
 cp .env.example .env
-# Editar .env con tu OPENROUTER_API_KEY
 ```
 
-## Configuración
-
-Edita `.env`:
+Edita `.env` con tu editor favorito:
 
 ```
-OPENROUTER_API_KEY=tu-api-key-de-openrouter
+OPENROUTER_API_KEY=sk-or-v1-tu-api-key-aqui
 ```
 
-Para obtener una key: https://openrouter.ai/keys
+**Obtener API key gratuita**: https://openrouter.ai/keys
+
+### 6. Verificar instalación
+
+```bash
+# Verificar que las dependencias están instaladas
+python -c "import pandas; import google.adk; print('✓ Instalación correcta')"
+
+# Verificar que el CSV de ejemplo existe
+ls data/g3_cartera_clientes.csv
+```
+
+## Ejecución
+
+```bash
+# Asegurar que el entorno está activado
+source .venv/bin/activate
+
+# Ejecutar el pipeline
+python main.py
+```
+
+## Troubleshooting
+
+| Problema | Solución |
+|----------|----------|
+| `ModuleNotFoundError: No module named 'google'` | Ejecutar `uv sync` |
+| `OPENROUTER_API_KEY not found` | Verificar que `.env` existe y tiene la key |
+| `FileNotFoundError: g3_cartera_clientes.csv` | Colocar CSV en `data/` |
+| `Permission denied` | Verificar permisos de escritura en `output/` |
 
 ## Uso
 
